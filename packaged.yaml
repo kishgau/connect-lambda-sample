@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Sample Lambda for AWS Connect
+
+  '
+Globals:
+  Function:
+    Timeout: 5
+Outputs:
+  LexLambda:
+    Description: First Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - ConnectLambdaSampleInitGo
+      - Arn
+Resources:
+  ConnectLambdaSampleInitGo:
+    Properties:
+      CodeUri: s3://sethkor-connect-sam/dc0b6b0e76d3dc5c05cd91a644285617
+      Description: A sample Lambda Init Function for AWS Lex in Go
+      FunctionName: ConnectLambdaSample
+      Handler: connect-lambda-sample
+      Policies:
+      - AWSLambdaExecute
+      Runtime: go1.x
+      Tracing: Active
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

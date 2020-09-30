@@ -1,2 +1,2 @@
-# connect-lambda-sample
-Sample Lambda for AWS Connect
+# lex-lambda-sample-init
+Lex Lambda Sample Init
