@@ -48,9 +48,9 @@ func HandleRequest(ctx context.Context, connectEvent events.ConnectEvent) (Respo
 	var answerText string
 	switch userSelection {
 	case "1":
-		answerText = "Today's date is" + time.Now().In(loc).Format("01 January 2006")
+		answerText = "Today's date is " + time.Now().In(loc).Format("01 January 2006")
 	case "2":
-		answerText = "The time now is" + time.Now().In(loc).Format(time.Kitchen)
+		answerText = "The time now is " + time.Now().In(loc).Format(time.Kitchen)
 	case "3":
 		answerText = "Today is " + time.Now().In(loc).Weekday().String()
 
