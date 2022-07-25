@@ -14,6 +14,9 @@ package:
 deploy: package
 	sam deploy --profile $(DEPLOY-PROFILE) --region $(REGION) --template-file packaged.yaml --stack-name $(STACK-NAME) --capabilities CAPABILITY_IAM
 
+deployv2: package
+	sam deploy --profile $(DEPLOY-PROFILE) --region $(REGION) --stack-name $(STACK-NAME) --capabilities CAPABILITY_IAM --resolve-s3
+
 remove:
 	aws --profile $(DEPLOY-PROFILE) --region $(REGION) cloudformation delete-stack  --stack-name $(STACK-NAME)
 	aws --profile $(DEPLOY-PROFILE) --region $(REGION) cloudformation wait stack-delete-complete --stack-name $(STACK-NAME)
